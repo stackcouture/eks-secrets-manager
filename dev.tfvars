@@ -24,5 +24,10 @@ pri_sub_name          = "subnet-private"
 public_rt_name  = "public-route-table"
 private_rt_name = "private-route-table"
 
+# NAT
 nat_gw_name = "NAT-GW"
 eip_name    = "VPC-Elastic-IP"
+
+# SG 
+sg_name        = "eks-cluster-sg"
+sg_description = "Security group for EKS cluster"
