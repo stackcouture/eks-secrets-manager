@@ -31,3 +31,8 @@ eip_name    = "VPC-Elastic-IP"
 # SG 
 sg_name        = "eks-cluster-sg"
 sg_description = "Security group for EKS cluster"
+
+# IAM 
+is_eks_role_enabled           = true
+is_eks_nodegroup_role_enabled = true
+aws_region                    = "ap-south-1"
