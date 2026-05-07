@@ -80,4 +80,5 @@ module "endpoints" {
   vpc_endpoint_sts   = var.vpc_endpoint_sts
   vpc_endpoint_ssm   = var.vpc_endpoint_ssm
   env                = var.env
+  sg_vpce_id         = module.sg.vpce_sg_id
 }

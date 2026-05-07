@@ -8,6 +8,11 @@ variable "private_subnet_ids" {
   description = "List of Private Subnet IDs"
 }
 
+variable "sg_vpce_id" {
+  type        = string
+  description = "List of Private Subnet IDs"
+}
+
 variable "vpc_endpoint_sts" {
   type        = string
   description = "VPC Endpoint STS"
