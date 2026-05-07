@@ -32,3 +32,8 @@ variable "vpc_endpoint_ssmmessages" {
   type        = string
   description = "VPC Endpoint SSMMessages"
 }
+
+variable "vpc_endpoint_ec2messages" {
+  type        = string
+  description = "VPC Endpoint EC2 Message"
+}

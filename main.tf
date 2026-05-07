@@ -82,4 +82,5 @@ module "endpoints" {
   env                      = var.env
   sg_vpce_id               = module.sg.vpce_sg_id
   vpc_endpoint_ssmmessages = var.vpc_endpoint_ssmmessages
+  vpc_endpoint_ec2messages = var.vpc_endpoint_ec2messages
 }

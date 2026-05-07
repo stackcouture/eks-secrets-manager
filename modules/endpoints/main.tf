@@ -39,3 +39,18 @@ resource "aws_vpc_endpoint" "ssmmessages" {
     env  = var.env
   }
 }
+
+resource "aws_vpc_endpoint" "ec2messages" {
+  vpc_id            = var.vpc_id
+  service_name      = "com.amazonaws.${data.aws_region.current.name}.ec2messages"
+  vpc_endpoint_type = "Interface"
+  subnet_ids        = var.private_subnet_ids
+  security_group_ids = [
+    var.sg_vpce_id
+  ]
+  private_dns_enabled = true
+  tags = {
+    Name = var.vpc_endpoint_ec2messages
+    env  = var.env
+  }
+}
