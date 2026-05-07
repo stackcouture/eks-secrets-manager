@@ -27,3 +27,8 @@ variable "env" {
   type        = string
   description = "VPC Environment"
 }
+
+variable "vpc_endpoint_ssmmessages" {
+  type        = string
+  description = "VPC Endpoint SSMMessages"
+}

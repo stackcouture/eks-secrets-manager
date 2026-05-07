@@ -13,13 +13,11 @@ resource "aws_vpc_endpoint" "sts" {
 }
 
 resource "aws_vpc_endpoint" "ssm" {
-  vpc_id             = var.vpc_id
-  service_name       = "com.amazonaws.${data.aws_region.current.name}.ssm"
-  vpc_endpoint_type  = "Interface"
-  subnet_ids         = var.private_subnet_ids
-  security_group_ids = [var.sg_vpce_id]
-  # aws_security_group.vpce.id
-
+  vpc_id              = var.vpc_id
+  service_name        = "com.amazonaws.${data.aws_region.current.name}.ssm"
+  vpc_endpoint_type   = "Interface"
+  subnet_ids          = var.private_subnet_ids
+  security_group_ids  = [var.sg_vpce_id]
   private_dns_enabled = true
   tags = {
     Name = var.vpc_endpoint_ssm
@@ -27,18 +25,17 @@ resource "aws_vpc_endpoint" "ssm" {
   }
 }
 
-# resource "aws_vpc_endpoint" "ssmmessages" {
-#   vpc_id            = aws_vpc.main.id
-#   service_name      = "com.amazonaws.ap-south-1.ssmmessages"
-#   vpc_endpoint_type = "Interface"
-
-#   subnet_ids = [
-#     aws_subnet.private_a.id
-#   ]
-
-#   security_group_ids = [
-#     aws_security_group.vpce.id
-#   ]
-
-#   private_dns_enabled = true
-# }
+resource "aws_vpc_endpoint" "ssmmessages" {
+  vpc_id            = var.vpc_id
+  service_name      = "com.amazonaws.${data.aws_region.current.name}.ssmmessages"
+  vpc_endpoint_type = "Interface"
+  subnet_ids        = var.private_subnet_ids
+  security_group_ids = [
+    var.sg_vpce_id
+  ]
+  private_dns_enabled = true
+  tags = {
+    Name = var.vpc_endpoint_ssmmessages
+    env  = var.env
+  }
+}

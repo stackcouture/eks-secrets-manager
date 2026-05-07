@@ -38,6 +38,7 @@ is_eks_nodegroup_role_enabled = true
 aws_region                    = "ap-south-1"
 
 # Endpoints 
-vpc_endpoint_sts = "VPC Endpoint STS"
-vpc_endpoint_ssm = "VPC Endpoint SSM"
-vpce_sg_name     = "VPC Endpoint Security Group"
+vpc_endpoint_sts         = "VPC Endpoint STS"
+vpc_endpoint_ssm         = "VPC Endpoint SSM"
+vpce_sg_name             = "VPC Endpoint Security Group"
+vpc_endpoint_ssmmessages = "VPC Endpoint SSMMessages"

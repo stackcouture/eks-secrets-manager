@@ -125,3 +125,8 @@ variable "vpce_sg_name" {
   description = "VPC Endpoint Security Group"
 }
 
+variable "vpc_endpoint_ssmmessages" {
+  type        = string
+  description = "VPC Endpoint SSMMessages"
+}
+

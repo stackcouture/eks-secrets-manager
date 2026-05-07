@@ -74,11 +74,12 @@ module "iam" {
 }
 
 module "endpoints" {
-  source             = "./modules/endpoints"
-  vpc_id             = module.vpc.vpc_id
-  private_subnet_ids = module.subnets.private_subnets
-  vpc_endpoint_sts   = var.vpc_endpoint_sts
-  vpc_endpoint_ssm   = var.vpc_endpoint_ssm
-  env                = var.env
-  sg_vpce_id         = module.sg.vpce_sg_id
+  source                   = "./modules/endpoints"
+  vpc_id                   = module.vpc.vpc_id
+  private_subnet_ids       = module.subnets.private_subnets
+  vpc_endpoint_sts         = var.vpc_endpoint_sts
+  vpc_endpoint_ssm         = var.vpc_endpoint_ssm
+  env                      = var.env
+  sg_vpce_id               = module.sg.vpce_sg_id
+  vpc_endpoint_ssmmessages = var.vpc_endpoint_ssmmessages
 }
