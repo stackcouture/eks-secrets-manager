@@ -32,3 +32,8 @@ variable "vpc_cidr" {
   type        = string
   description = "VPC CIDR Block"
 }
+
+variable "private_ec2_sg_name" {
+  type        = string
+  description = "Private EC2 Security Group"
+}

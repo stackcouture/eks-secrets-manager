@@ -55,14 +55,15 @@ module "route-table" {
 # }
 
 module "sg" {
-  source         = "./modules/sg"
-  vpc_id         = module.vpc.vpc_id
-  env            = var.env
-  sg_name        = var.sg_name
-  sg_description = var.sg_description
-  cluster_name   = var.cluster_name
-  vpce_sg_name   = var.vpce_sg_name
-  vpc_cidr       = module.vpc.vpc_cidr_block
+  source              = "./modules/sg"
+  vpc_id              = module.vpc.vpc_id
+  env                 = var.env
+  sg_name             = var.sg_name
+  sg_description      = var.sg_description
+  cluster_name        = var.cluster_name
+  vpce_sg_name        = var.vpce_sg_name
+  vpc_cidr            = module.vpc.vpc_cidr_block
+  private_ec2_sg_name = var.private_ec2_sg_name
 }
 
 module "iam" {

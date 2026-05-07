@@ -134,3 +134,8 @@ variable "vpc_endpoint_ec2messages" {
   type        = string
   description = "VPC Endpoint EC2 Message"
 }
+
+variable "private_ec2_sg_name" {
+  type        = string
+  description = "Private EC2 Security Group"
+}

@@ -29,8 +29,9 @@ nat_gw_name = "NAT-GW"
 eip_name    = "VPC-Elastic-IP"
 
 # SG 
-sg_name        = "eks-cluster-sg"
-sg_description = "Security group for EKS cluster"
+sg_name             = "eks-cluster-sg"
+sg_description      = "Security group for EKS cluster"
+private_ec2_sg_name = "Private-EC2-Security Group"
 
 # IAM 
 is_eks_role_enabled           = true
@@ -43,3 +44,4 @@ vpc_endpoint_ssm         = "VPC Endpoint SSM"
 vpce_sg_name             = "VPC Endpoint Security Group"
 vpc_endpoint_ssmmessages = "VPC Endpoint SSMMessages"
 vpc_endpoint_ec2messages = "VPC Endpoint EC2 Message"
+
