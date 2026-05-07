@@ -22,3 +22,13 @@ variable "sg_description" {
   type        = string
   description = "Security Group Desription"
 }
+
+variable "vpce_sg_name" {
+  type        = string
+  description = "VPC Endpoint Security Group"
+}
+
+variable "vpc_cidr" {
+  type        = string
+  description = "VPC CIDR Block"
+}
