@@ -33,26 +33,26 @@ module "subnets" {
 }
 
 module "route-table" {
-  source             = "./modules/rt"
-  vpc_id             = module.vpc.vpc_id
-  env                = var.env
-  public_rt_name     = var.public_rt_name
-  private_rt_name    = var.private_rt_name
-  igw_id             = module.igw.igw_id
-  nat_gateway_id     = module.nat.nat_gateway_id
+  source          = "./modules/rt"
+  vpc_id          = module.vpc.vpc_id
+  env             = var.env
+  public_rt_name  = var.public_rt_name
+  private_rt_name = var.private_rt_name
+  igw_id          = module.igw.igw_id
+  # nat_gateway_id     = module.nat.nat_gateway_id
   public_subnet_ids  = module.subnets.public_subnets
   private_subnet_ids = module.subnets.private_subnets
 }
 
-module "nat" {
-  source            = "./modules/nat"
-  vpc_id            = module.vpc.vpc_id
-  env               = var.env
-  eip_name          = var.eip_name
-  igw_id            = module.igw.igw_id
-  nat_gw_name       = var.nat_gw_name
-  public_subnet_ids = module.subnets.public_subnets
-}
+# module "nat" {
+#   source            = "./modules/nat"
+#   vpc_id            = module.vpc.vpc_id
+#   env               = var.env
+#   eip_name          = var.eip_name
+#   igw_id            = module.igw.igw_id
+#   nat_gw_name       = var.nat_gw_name
+#   public_subnet_ids = module.subnets.public_subnets
+# }
 
 module "sg" {
   source         = "./modules/sg"
@@ -69,4 +69,13 @@ module "iam" {
   aws_region                    = var.aws_region
   is_eks_nodegroup_role_enabled = var.is_eks_nodegroup_role_enabled
   is_eks_role_enabled           = var.is_eks_role_enabled
+}
+
+module "endpoints" {
+  source             = "./modules/endpoints"
+  vpc_id             = module.vpc.vpc_id
+  private_subnet_ids = module.subnets.private_subnets
+  vpc_endpoint_sts   = var.vpc_endpoint_sts
+  vpc_endpoint_ssm   = var.vpc_endpoint_ssm
+  env                = var.env
 }

@@ -107,3 +107,13 @@ variable "aws_region" {
   type        = string
   description = "AWS Region Name"
 }
+
+variable "vpc_endpoint_sts" {
+  type        = string
+  description = "VPC Endpoint STS"
+}
+
+variable "vpc_endpoint_ssm" {
+  type        = string
+  description = "VPC Endpoint SSM"
+}

@@ -36,3 +36,7 @@ sg_description = "Security group for EKS cluster"
 is_eks_role_enabled           = true
 is_eks_nodegroup_role_enabled = true
 aws_region                    = "ap-south-1"
+
+# Endpoints 
+vpc_endpoint_sts = "VPC Endpoint STS"
+vpc_endpoint_ssm = "VPC Endpoint SSM"
