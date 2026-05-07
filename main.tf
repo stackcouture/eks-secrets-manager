@@ -32,7 +32,7 @@ module "subnets" {
   pri_availability_zone = var.pri_availability_zone
 }
 
-module "route-table" {
+module "route_table" {
   source          = "./modules/rt"
   vpc_id          = module.vpc.vpc_id
   env             = var.env
@@ -84,4 +84,14 @@ module "endpoints" {
   sg_vpce_id               = module.sg.vpce_sg_id
   vpc_endpoint_ssmmessages = var.vpc_endpoint_ssmmessages
   vpc_endpoint_ec2messages = var.vpc_endpoint_ec2messages
+  aws_rt_private_id        = module.route_table.private_rt_id
+}
+
+module "private-instnace" {
+  source                            = "./modules/ec2-instance"
+  private_subnet_id                 = module.subnets.private_subnet_id
+  ec2_private_sg_id                 = module.sg.ec2_private_sg_id
+  aws_iam_instance_profile_ssm_name = module.iam.aws_iam_instance_profile_ssm_name
+  env                               = var.env
+  private_instance_name             = var.private_instance_name
 }

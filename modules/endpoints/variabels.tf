@@ -37,3 +37,8 @@ variable "vpc_endpoint_ec2messages" {
   type        = string
   description = "VPC Endpoint EC2 Message"
 }
+
+variable "aws_rt_private_id" {
+  type        = string
+  description = "Private Route Table Id"
+}

@@ -139,3 +139,9 @@ variable "private_ec2_sg_name" {
   type        = string
   description = "Private EC2 Security Group"
 }
+
+# Private Instance 
+variable "private_instance_name" {
+  type        = string
+  description = "Private Instance Name"
+}

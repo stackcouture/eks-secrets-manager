@@ -54,3 +54,17 @@ resource "aws_vpc_endpoint" "ec2messages" {
     env  = var.env
   }
 }
+
+# S3 VPC Endpoint 
+resource "aws_vpc_endpoint" "s3" {
+  vpc_id            = var.vpc_id
+  service_name      = "com.amazonaws.${data.aws_region.current.name}.s3"
+  vpc_endpoint_type = "Gateway"
+  route_table_ids = [
+    var.aws_rt_private_id
+  ]
+
+  tags = {
+    Name = "s3-endpoint"
+  }
+}

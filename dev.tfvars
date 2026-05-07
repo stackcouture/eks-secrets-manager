@@ -45,3 +45,5 @@ vpce_sg_name             = "VPC Endpoint Security Group"
 vpc_endpoint_ssmmessages = "VPC Endpoint SSMMessages"
 vpc_endpoint_ec2messages = "VPC Endpoint EC2 Message"
 
+# Private EC2 instance 
+private_instance_name = "Private Instance"
